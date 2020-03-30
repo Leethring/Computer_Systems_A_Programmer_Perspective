@@ -41,7 +41,13 @@ int  main(void)
     float y = 0;
     int * z = 0;
     int a = 2;
+    short b = 12345;
+    short mx = -b;
 
+    printf("\n");
+    show_bytes((byte_pointer) &b, sizeof(short));
+    show_bytes((byte_pointer) &mx, sizeof(short));
+    printf("\n");
     test_show_bytes(a);
     show_int(x);
     show_pointer(z);
