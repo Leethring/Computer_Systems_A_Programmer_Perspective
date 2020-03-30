@@ -35,23 +35,25 @@ void test_show_bytes(int val)
     show_float(fval);
     show_pointer(pval);
 }
+
+int fun1(unsigned word)
+{
+    return (int) ((word << 24) >> 24);
+}
+
+int fun2(unsigned word)
+{
+    return ((int) word << 24) >> 24;
+}
 int  main(void)
 {
-    int x = 0;
-    float y = 0;
-    int * z = 0;
-    int a = 2;
-    short b = 12345;
-    short mx = -b;
+    unsigned a;
 
-    printf("\n");
-    show_bytes((byte_pointer) &b, sizeof(short));
-    show_bytes((byte_pointer) &mx, sizeof(short));
-    printf("\n");
-    test_show_bytes(a);
-    show_int(x);
-    show_pointer(z);
-    show_float(y);
-
+    while(scanf("%x", &a) == 1)
+    {
+        printf("fun1 %x\n", fun1(a));
+        printf("fun2 %x\n", fun2(a));
+    }
+    
     return 0;
 }
